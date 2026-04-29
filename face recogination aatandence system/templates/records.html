@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Records</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css.css') }}">
+</head>
+
+<body>
+
+    <h2>Attendance Records</h2>
+
+    <table border="1">
+        <tr>
+            <th>Sr No</th>
+            
+            <th>Name</th>
+            <th>Time</th>
+            <th>Date</th>
+            <th>roll no</th>
+        </tr>
+
+        {% for r in data %}
+        <tr>
+            <td>{{ r[0] }}</td>
+            <td>{{ r[1] }}</td>
+            <td>{{ r[2] }}</td>
+            <td>{{ r[3] }}</td>
+            <td>{{ r[4] }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</body>
+
+</html>
