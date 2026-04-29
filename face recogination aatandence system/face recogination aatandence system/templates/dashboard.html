@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css.css') }}">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3 class="logo">FaceAttend</h3>
+
+            <a href="/dashboard" class="active"><i class="bi bi-grid"></i> Dashboard</a>
+            <a href="/register"><i class="bi bi-person-plus"></i> Register</a>
+            <a href="/students"><i class="bi bi-people"></i> Students</a>
+            <a href="/records"><i class="bi bi-clipboard-data"></i> Records</a>
+            <a href="/logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+            <a href="/export" class="btn btn-primary">Export</a>
+        </aside>
+
+        <!-- Main -->
+        <main class="main">
+
+            <!-- Top -->
+            <div class="topbar">
+                <h2>Dashboard</h2>
+                <span>👋 Welcome Admin</span>
+            </div>
+
+            <!-- Cards -->
+            <div class="cards">
+
+                <div class="card">
+                    <i class="bi bi-people"></i>
+                    <h2>{{ total }}</h2>
+                    <p>Total Students</p>
+                </div>
+
+                <div class="card">
+                    <i class="bi bi-person-check"></i>
+                    <h2>{{ present }}</h2>
+                    <p>Present Today</p>
+                </div>
+
+                <div class="card">
+                    <i class="bi bi-graph-up"></i>
+                    <h2>{{ percent }}%</h2>
+                    <p>Attendance Rate</p>
+                </div>
+
+            </div>
+
+            <div class="camera-box">
+
+                <h3>Live Attendance</h3>
+
+                <img id="cam" width="500">
+
+                <br><br>
+
+                <button onclick="startCam()">Start Camera</button>
+                <button onclick="stopCam()">Stop Camera</button>
+                <button onclick="capture()">Capture</button>
+
+            </div>
+
+            <script>
+                function startCam() {
+                    document.getElementById("cam").src = "/video";
+                }
+
+                function stopCam() {
+                    document.getElementById("cam").src = "";
+                }
+
+                function capture() {
+                    fetch('/capture')
+                        .then(res => res.text())
+                        .then(data => alert(data));
+                }
+            </script>
+            <!-- Recent -->
+            <div class="card" style="margin-top:20px;">
+                <h3>Recent Attendance</h3>
+
+                <ul>
+                    {% for r in recent %}
+                    <li>{{ r[0] }} - {{ r[1] }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </main>
+
+    </div>
+
+    <script>
+        function startCam() {
+            document.getElementById("cam").src = "/video";
+        }
+        function stopCam() {
+            document.getElementById("cam").src = "";
+        }
+
+        <button onclick="captureImage()">Capture</button>
+
+<script>
+function captureImage(){
+    fetch('/capture')
+    .then(res => res.text())
+    .then(data => alert(data))
+
+    <div style="text-align:right; margin:10px;">
+    <a href="/export">
+        <button style="
+            padding:10px 20px;
+            background-color:green;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;">
+            Export Attendance
+        </button>
+    </a>
+</div>
+}
+</script>
+    </script>
+
+</body>
+
+</html>

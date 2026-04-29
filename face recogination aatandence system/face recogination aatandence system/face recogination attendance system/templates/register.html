@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register Student</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="style.css.css">
+    <link rel="stylesheet" href="/static/style.css.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3 class="logo">FaceAttend</h3>
+            <a href="/dashboard"><i class="bi bi-grid"></i> Dashboard</a>
+            <a href="/register" class="active"><i class="bi bi-person-plus"></i> Register</a>
+            <a href="/students"><i class="bi bi-people"></i> Students</a>
+            <a href="/records"><i class="bi bi-clipboard-data"></i> Records</a>
+            <a href="/logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+        </aside>
+
+        <!-- Main -->
+        <main class="main">
+
+            <h2>Register Student</h2>
+
+            <div class="form-box">
+                <form method="POST" enctype="multipart/form-data">
+
+                    <input type="text" name="name" placeholder="Enter Student Name" required>
+                    <input type="text" name="roll" placeholder="Enter Roll Number" required>
+
+                    <input type="file" name="image" required>
+
+                    <button type="submit">Register</button>
+
+                </form>
+            </div>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
